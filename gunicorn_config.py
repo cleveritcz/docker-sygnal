@@ -1,5 +1,5 @@
 # Customise these settings to your needs
-bind = '0.0.0.0:5000'
+bind = '127.0.0.1:5000'
 daemon = False
 accesslog = '/log/access_log'
 errorlog = '/log/error_log'
