@@ -1,15 +1,13 @@
-FROM cleveritcz/debian9-slim
+FROM python:2.7-slim
 
 WORKDIR /app
 ADD sygnal/. /app
 ADD gunicorn_config.py /app/gunicorn_config.py
 
 RUN pip install --trusted-host pypi.python.org gunicorn
-RUN apt update && apt -y install file gcc libc6-dev
-RUN python setup.py install || pip install gevent==1.4.0 && python setup.py install
+#RUN apt update && apt -y install file gcc libc6-dev
 
-RUN mkdir /log
-RUN touch /log/error_log
+RUN python setup.py install || pip install gevent==1.4.0 && python setup.py install
 
 EXPOSE 5000
 
