@@ -9,6 +9,7 @@ RUN apt update && apt -y install file gcc libc6-dev
 RUN python setup.py install || pip install gevent==1.4.0 && python setup.py install
 
 RUN mkdir /log
+RUN touch /log/error_log
 
 EXPOSE 5000
 
