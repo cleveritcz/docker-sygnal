@@ -1,4 +1,4 @@
-FROM python:2.7-slim
+FROM cleveritcz/debian9-slim
 
 WORKDIR /app
 ADD sygnal/. /app
