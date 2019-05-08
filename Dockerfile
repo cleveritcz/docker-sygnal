@@ -5,7 +5,7 @@ ADD sygnal/. /app
 ADD gunicorn_config.py /app/gunicorn_config.py
 
 RUN pip install --trusted-host pypi.python.org gunicorn
-RUN python setup.py install
+RUN python setup.py install || pip install gevent==1.4.0 && python setup.py install
 
 EXPOSE 5000
 
