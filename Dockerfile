@@ -8,8 +8,6 @@ RUN pip install --trusted-host pypi.python.org gunicorn==19.9 gevent==1.4.0 requ
 RUN mkdir /log
 RUN touch /log/error_log && chmod 775 -R /log
 
-#RUN apt update && apt -y install file gcc libc6-dev
-
 EXPOSE 5000
 
 # mount /app/sygnal.conf (and optionally override /app/gunicorn_config.py)
