@@ -10,7 +10,6 @@ RUN touch /log/error_log && chown -R gunicorn:gunicorn /log
 
 #RUN apt update && apt -y install file gcc libc6-dev
 
-RUN pip 
 
 EXPOSE 5000
 
