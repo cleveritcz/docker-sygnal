@@ -12,4 +12,5 @@ script:
   # Verify packages in the container.
   - docker exec --tty matrix-sygnal env TERM=xterm dpkg-query -W -f='${Status} ${Package} ${Version} ${Architecture}\n'|awk '($1 == "install") && ($2 == "ok") {print $4" "$5" "$6}'
 
-  - docker push docker.io/cleveritcz/matrix-sygnal
+  - https://cloud.docker.com/api/build/v1/source/fd5477ce-9283-4a20-adec-9184e2450f46/trigger/3126f903-e646-44de-9415-89e856bc901a/call/
+
