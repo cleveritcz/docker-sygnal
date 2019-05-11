@@ -1,0 +1,15 @@
+
+---
+services: docker
+
+script:
+  # Test building Dockerfile.
+  - docker build -t matrix-sygnal .
+
+  # Test running the container.
+  - docker run --name matrix-sygnal -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro matrix-sygnal
+
+  # Verify packages in the container.
+  - docker exec --tty matrix-sygnal env TERM=xterm dpkg-query -W -f='${Status} ${Package} ${Version} ${Architecture}\n'|awk '($1 == "install") && ($2 == "ok") {print $4" "$5" "$6}'
+
+  - docker push docker.io/cleveritcz/matrix-sygnal
